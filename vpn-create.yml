@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+
+    - name: Provision an AWS EC2 instance
+      ec2:
+         aws_access_key: {{ aws_access_key }} 
+         aws_secret_key: {{ aws_secret_key }}
+         key_name: vpn-test-key
+         region: us-west-2
+         group: vpn-test
+         instance_type: t2.micro
+         image: ami-043f63bd4fa486e8d
+         vpc_subnet_id: subnet-89fcacfe
+         assign_public_ip: yes
+         wait: true
+         exact_count: 1
+         count_tag:
+            Name: basic-test
+            ID: 123456-01
+         instance_tags:
+            Name: basic-test
+            ID: 123456-01
+      register: ec2
+    
+    - name: Display status of ec2 creation
+      debug:
+        msg: "ec2 result: ec2"
+
+    - name: Add all instance public IPs to host group
+      add_host: hostname={{ item.public_ip }} groups=vpn-test
+      loop: "{{ ec2.instances }}"

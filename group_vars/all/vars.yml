@@ -1,0 +1,9 @@
+---
+# vpn-test group_vars/all
+aws_access_key: "{{ vault_aws_access_key }}"
+aws_secret_key: "{{ vault_aws_secret_key }}"
+ec2_region: us-west-2
+ec2_group: vpn-test
+ec2_instance_type: t2.micro
+ec2_image: ami-064a66c638569c37c
+ec2_key_name: vpn-test-key

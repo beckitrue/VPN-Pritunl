@@ -1,0 +1,28 @@
+---
+- name: Install, start, and enable ntp
+  hosts: vpn-test
+  remote_user: ec2-user
+  become: yes
+
+  tasks:
+
+    - name: install ntp
+      yum:
+        name: ntp
+        state: latest
+    
+    - name: configure ntp servers 
+      blockinfile:
+        path: /etc/ntp.conf
+        block: |
+          marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+          server time1.google.com iburst
+          server time2.google.com iburst
+          server time3.google.com iburst
+          server time4.google.com iburst
+
+    - name: start ntpd
+      service: 
+        name: ntpd
+        enabled: yes
+        state: started
