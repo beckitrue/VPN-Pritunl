@@ -32,7 +32,7 @@ This playbook has vault encrypted strings in the group_vars/all file. The playbo
 Example Playbook
 ----------------
 
-Including an example of how to use your playbook(for instance, with variables passed in as parameters) is always nice for users too:
+Run in this order. Some steps are still manual.
 
     ansible-playbook provision-ec2.yml --vault-password-file </path/vault-password-file>
     ansible-playbook site.yml 
@@ -51,10 +51,10 @@ https://docs.pritunl.com/docs/commands
 
 Things to do
 ----------------
-Disable network interface source/dest check on EC2 network interface - not automated yet
-Configure SSL Cert on server
-Use dynamic inventory https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
-Automate Pritunl configuration
+* Disable network interface source/dest check on EC2 network interface - not automated yet
+* Configure SSL Cert on server
+* Use dynamic inventory https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
+* Automate Pritunl configuration
 
 License
 -------
