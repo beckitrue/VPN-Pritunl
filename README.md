@@ -52,8 +52,11 @@ https://docs.pritunl.com/docs/commands
 Things to do
 ----------------
 * Disable network interface source/dest check on EC2 network interface - not automated yet
+
 * Configure SSL Cert on server
-* Use dynamic inventory https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
+
+* Use dynamic inventory
+https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
 * Automate Pritunl configuration
 
 License
