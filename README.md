@@ -8,6 +8,7 @@ Requirements
 ------------    
 
 Python >= 2.6
+
 boto
 
 Oracle Linux ami. Current Oracle Linux ami: ami-043f63bd4fa486e8d
@@ -16,12 +17,19 @@ Site Variables
 --------------
 
 AWS access key - vault encrypted string
+
 AWS secret key - valut encrypted string
+
 EC2 key name
+
 EC2 region
+
 EC2 group
+
 EC2 instance type
+
 EC2 image
+
 EC2 VPC subnet
 
 Dependencies
