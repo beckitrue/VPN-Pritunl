@@ -1,0 +1,22 @@
+---
+# This role configures the Pritunl VPN and returns the setup key and 
+# default password 
+
+- name: Increase open file limit
+  blockinfile:
+    path: /etc/security/limits.conf
+    block: |
+      marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+      "* hard nofile 64000"
+      "* soft nofile 64000"
+      root hard nofile 64000
+      root soft nofile 64000 
+
+- name: get setup key
+  shell: pritunl setup-key
+  register: setup
+
+- debug:
+    msg: "setup key: {{ setup.stdout_lines }} "
+
+

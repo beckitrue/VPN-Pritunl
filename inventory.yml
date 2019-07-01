@@ -1,2 +1,5 @@
-[vpn-test]
-[ip]  ansiblle_user=ec2-user	
+all:
+  children:
+    vpn-test:
+      hosts:
+        <ip or FQDN>

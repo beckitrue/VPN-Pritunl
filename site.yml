@@ -1,0 +1,15 @@
+---
+# This playbook performs the steps required to 
+# deploy the single server Pritunl VPN for personal use 
+# Must run provision-ec2.yml before running this playbook
+
+# install and configure NTP
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+
+  roles:
+     - ntp
+     - vpn-install-pritunl
+     - vpn-config
+  
