@@ -3,8 +3,11 @@
 # deploy the single server Pritunl VPN for personal use 
 # Must run provision-ec2.yml before running this playbook
 
-# install and configure NTP
-- hosts: all
+# provision an aws ec2 instance 
+- import_playbook: provision-ec2.yml
+
+# configure server, load and configure software 
+- hosts: vpn-test
   remote_user: ec2-user
   become: yes
 

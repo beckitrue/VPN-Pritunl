@@ -1,5 +1,5 @@
 ---
-# vars file for all hosts vpn,v1.0.0
+# vars file for all hosts
 
 # ansible ssh vars
 ansible_ssh_private_key_file: "{{ lookup('env','SSH_KEYDIR') }}/vpn-test-key.pem"

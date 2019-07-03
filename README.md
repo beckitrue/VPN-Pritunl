@@ -35,14 +35,13 @@ EC2 VPC subnet
 Dependencies
 ------------
 
-This playbook has vault encrypted strings in the group_vars/all file. The playbook has to be called with the --vault-password-file option
+This playbook has vault encrypted strings in the group_vars/all file. The playbook has to be called with the --vault-password-file option or edit /etc/ansible/ansible.cfg file with the password file name.
 
 Example Playbook
 ----------------
 
 Run in this order. Some steps are still manual.
 
-    ansible-playbook provision-ec2.yml --vault-password-file </path/vault-password-file>
     ansible-playbook site.yml 
     get setupkey from message log
     Use browser https://<ip> and use setup key to login
@@ -65,6 +64,7 @@ Things to do
 
 * Use dynamic inventory
 https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
+
 * Automate Pritunl configuration
 
 License

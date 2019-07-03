@@ -4,6 +4,7 @@
 - name: install ntp
   yum:
     name: ntp
+    lock_timeout: 180
     state: latest
 
 - name: configure ntp servers 

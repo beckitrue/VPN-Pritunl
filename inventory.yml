@@ -3,3 +3,6 @@ all:
     vpn-test:
       hosts:
         <ip or FQDN>
+      vars:
+        ansible_ssh_private_key_file: "{{ lookup('env','SSH_KEYDIR') }}/vpn-test-key.pem"
+        ansible_ssh_user: ec2-user

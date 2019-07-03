@@ -25,10 +25,10 @@
         exact_count: 1
         count_tag:
           Name: basic-test
-          ID: 06292019
+          ID: 07032019-01
         instance_tags:
           Name: basic-test
-          ID: 06292019
+          ID: 07032019-01
     register: ec2
 
   # add the new instance into a host group so we 
