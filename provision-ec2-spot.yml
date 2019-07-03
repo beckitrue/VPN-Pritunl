@@ -1,0 +1,53 @@
+---
+# Provision an AWS EC2 instance 
+
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  vars_files:
+  - group_vars/all
+
+  tasks:
+
+  - name: Provision an AWS EC2 Spot instance
+    ec2:
+        key_name: "{{ ec2_key_name }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        spot_price: 0.24
+        spot_wait_timeout: 600
+        group_id: "{{ ec2_group_id }}"
+        region: "{{ ec2_region }}"
+        group: "{{ ec2_group }}"
+        instance_type: t3.medium
+        image: "{{ ec2_image }}"
+        vpc_subnet_id: "{{ ec2_vpc_subnet }}"
+        assign_public_ip: yes
+        instance_initiated_shutdown_behavior: terminate
+        wait: true
+        exact_count: 1
+        count_tag:
+          Name: basic-test
+          ID: 07032019-spot-08
+        instance_tags:
+          Name: basic-test
+          ID: 07032019-spot-08
+    register: ec2
+
+  # add the new instance into a host group so we 
+  # can call it later when installing the VPN 
+  # software
+  - name: Add instance public IP to host group
+    add_host: 
+      hostname: '{{ item.public_ip }}'
+      groupname: vpn-test
+    loop: "{{ ec2.instances }}"
+
+  - name: Wait for SSH to come up
+    delegate_to: "{{ item.public_dns_name }}"
+    remote_user: ec2-user
+    wait_for_connection:
+      delay: 60
+      timeout: 320
+    loop: "{{ ec2.instances }}"
