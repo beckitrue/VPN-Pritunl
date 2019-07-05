@@ -45,10 +45,11 @@ Run in this order. Some steps are still manual.
     ansible-playbook site.yml 
     get setupkey from message log
     Use browser https://<ip> and use setup key to login
-    ansible-playbook pritunl-default-password.yml
+    ansible-playbook -i "<ip>", pritunl-default-password.yml
     username and password will be in message log
 
-Login and set up databse after installation
+Login and set up databse after installation. Can't get the default password until you do.
+
 Configuration documentation 
 https://docs.pritunl.com/docs/configuration-5
 
@@ -59,8 +60,6 @@ https://docs.pritunl.com/docs/commands
 Things to do
 ----------------
 * Disable network interface source/dest check on EC2 network interface - not automated yet
-
-* Configure SSL Cert on server
 
 * Use dynamic inventory
 https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2
