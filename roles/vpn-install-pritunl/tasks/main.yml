@@ -1,5 +1,5 @@
 ---
-# This role installs, starts, adn enables Pritunl and MongoDB on 
+# This role installs, starts, and enables Pritunl and MongoDB on 
 # the AWS EC2 instance created in the vpn-provision-ec2 roles
 
 - name: Add multiple repositories into the same file (1/2)
@@ -36,12 +36,10 @@
     gpgcakey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
     enabled: yes
 
-- name: configure gpg keys
-  shell: |
-    gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-    gpg --armor --export 7568D9BB55FF9E5287D586017AE645C0CF8E292A > key.tmp
-    sudo rpm --import key.tmp
-    rm -f key.tmp
+- name: pritunl gpg keys 
+  rpm_key:
+    key: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7568D9BB55FF9E5287D586017AE645C0CF8E292A
+    state: present 
 
 - name: remove iptables-services
   yum: 
