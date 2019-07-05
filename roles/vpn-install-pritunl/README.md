@@ -8,7 +8,6 @@ Requirements
 
 yum
 yum_repository
-shell
 service
 gpg keys
 
