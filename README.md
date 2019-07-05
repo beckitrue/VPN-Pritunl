@@ -48,7 +48,7 @@ Run in this order. Some steps are still manual.
     ansible-playbook -i "<ip>", pritunl-default-password.yml
     username and password will be in message log
 
-Login and set up databse after installation. Can't get the default password until you do.
+Login and set up databse after installation. Can't get the default password until you do. Here's a video of the whole process: https://youtu.be/Gf_cv_RQH1s
 
 Configuration documentation 
 https://docs.pritunl.com/docs/configuration-5
