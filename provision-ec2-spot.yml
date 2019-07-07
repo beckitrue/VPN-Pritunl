@@ -17,7 +17,6 @@
         aws_secret_key: "{{ aws_secret_key }}"
         spot_price: 0.24
         spot_wait_timeout: 600
-        group_id: "{{ ec2_group_id }}"
         region: "{{ ec2_region }}"
         group: "{{ ec2_group }}"
         instance_type: t3.medium
@@ -29,10 +28,10 @@
         exact_count: 1
         count_tag:
           Name: basic-test
-          ID: 07032019-spot-08
+          ID: 07032019-spot-00
         instance_tags:
           Name: basic-test
-          ID: 07032019-spot-08
+          ID: 07032019-spot-00
     register: ec2
 
   # add the new instance into a host group so we 

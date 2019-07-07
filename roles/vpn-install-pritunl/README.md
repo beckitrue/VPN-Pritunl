@@ -7,8 +7,11 @@ Requirements
 ------------
 
 yum
+
 yum_repository
+
 service
+
 gpg keys
 
 Role Variables
@@ -17,6 +20,8 @@ None as currently written.
 
 Dependencies
 ------------
+
+Ansible 2.8 - yum lock_timeout
 
 AWS EC2 instance running Oracle Linux ami - set in the group_vars/all file
 

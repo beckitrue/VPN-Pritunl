@@ -22,7 +22,8 @@ aws_secret_key: !vault |
           3666396435343964333366643534313232396134353964336137
 ec2_key_name: vpn-test-key
 ec2_region: us-west-2
-ec2_group: vpn-test
+ec2_group: vpn_test
 ec2_instance_type: t2.micro
 ec2_image: ami-064a66c638569c37c
 ec2_vpc_subnet: subnet-89fcacfe
+yum_lock_timeout: 120

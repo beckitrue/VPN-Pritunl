@@ -16,7 +16,7 @@ There are no role variables as currently written.
 Dependencies
 ------------
 
-none
+Ansible 2.8 - yum lock_timeout
 
 Example Playbook
 ----------------

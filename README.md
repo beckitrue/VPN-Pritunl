@@ -35,6 +35,8 @@ EC2 VPC subnet
 Dependencies
 ------------
 
+Ansible 2.8 - yum lock_timeout
+
 This playbook has vault encrypted strings in the group_vars/all file. The playbook has to be called with the --vault-password-file option or edit /etc/ansible/ansible.cfg file with the password file name.
 
 Example Playbook

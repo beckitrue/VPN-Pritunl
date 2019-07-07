@@ -4,7 +4,7 @@
 # Must run provision-ec2.yml before running this playbook
 
 # provision an aws ec2 instance 
-- import_playbook: provision-ec2.yml
+- import_playbook: provision-ec2-spot.yml
 
 # configure server, load and configure software 
 - hosts: vpn-test
