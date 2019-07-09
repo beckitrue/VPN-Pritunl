@@ -1,6 +1,6 @@
 all:
   children:
-    vpn-test:
+    windows-test:
       hosts:
         < ip or FQDN >
       vars:
