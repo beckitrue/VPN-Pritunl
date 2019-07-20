@@ -7,7 +7,7 @@
 - import_playbook: provision-ec2.yml
 
 # configure server, load and configure software 
-- hosts: vpn-test
+- hosts: pritunl
   remote_user: ec2-user
   become: yes
 

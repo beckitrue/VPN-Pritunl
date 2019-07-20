@@ -21,13 +21,14 @@
         image: "{{ ec2_image }}"
         vpc_subnet_id: "{{ ec2_vpc_subnet }}"
         assign_public_ip: yes
+        source_dest_check: no
         wait: true
         exact_count: 1
         count_tag:
-          Name: basic-test
+          Name: pritunl-vpn
           ID: 07032019-01
         instance_tags:
-          Name: basic-test
+          Name: pritunl-vpn
           ID: 07032019-01
     register: ec2
 
@@ -37,7 +38,7 @@
   - name: Add instance public IP to host group
     add_host: 
       hostname: '{{ item.public_ip }}'
-      groupname: vpn-test
+      groupname: pritunl
     loop: "{{ ec2.instances }}"
 
   - name: Wait for SSH to come up

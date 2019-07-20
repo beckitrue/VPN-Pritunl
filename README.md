@@ -61,7 +61,6 @@ https://docs.pritunl.com/docs/commands
 
 Things to do
 ----------------
-* Disable network interface source/dest check on EC2 network interface - not automated yet
 
 * Use dynamic inventory
 https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2

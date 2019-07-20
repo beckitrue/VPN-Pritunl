@@ -2,7 +2,7 @@
 # vars file for all hosts
 
 # ansible ssh vars
-ansible_ssh_private_key_file: "{{ lookup('env','SSH_KEYDIR') }}/vpn-test-key.pem"
+ansible_ssh_private_key_file: "{{ lookup('env','SSH_KEYDIR') }}/pritunl-key.pem"
 ansible_ssh_user: ec2-user 
 
 aws_access_key: !vault |
@@ -20,10 +20,10 @@ aws_secret_key: !vault |
           3463633066636633390a376665613631393835366531353137393062366531373931626162353933
           35386339666133363332323963353338636135613632613234643461613636663065313137383064
           3666396435343964333366643534313232396134353964336137
-ec2_key_name: vpn-test-key
+ec2_key_name: pritunl-key
 ec2_region: us-west-2
-ec2_group: vpn_test
-ec2_instance_type: t2.micro
+ec2_group: pritunl
+ec2_instance_type: t3.micro
 ec2_image: ami-064a66c638569c37c
 ec2_vpc_subnet: subnet-89fcacfe
 yum_lock_timeout: 120
